@@ -8,27 +8,13 @@ import {
   ScrollView,
 } from 'react-native';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
+import {histories} from '../sources/Histories';
 
-const histories = [
-  {
-    date: 'Yesterday',
-    bobba: 0.0024,
-  },
-  {
-    date: 'Sept 22 2021',
-    bobba: 0.002,
-  },
-  {
-    date: 'Sept 21 2021',
-    bobba: 0.0019,
-  },
-  {
-    date: 'Sept 20 2021',
-    bobba: 0.0022,
-  },
-];
+export default function Home({navigation}) {
+  function goToHistoryPage() {
+    navigation.navigate('History');
+  }
 
-export default function Home() {
   return (
     <SafeAreaProvider style={styles.safeArea}>
       <ScrollView>
@@ -71,7 +57,7 @@ export default function Home() {
           <View style={historyStyles.container}>
             <View style={historyStyles.titleWrapper}>
               <Text style={historyStyles.title}>Histories</Text>
-              <TouchableOpacity>
+              <TouchableOpacity onPress={() => goToHistoryPage()}>
                 <Text style={historyStyles.link}>See All</Text>
               </TouchableOpacity>
             </View>
